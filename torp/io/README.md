@@ -3,29 +3,29 @@
 
 | **Field**        | **Description**                                           | **Unit**    | **Format / Example**                    |
 |:-----------------|:----------------------------------------------------------|:------------|:----------------------------------------|
-| timestamp        | Valid time of the data entry                              | \-          | `YYYYMMDD-hhmm` (e.g., `20240305-1530`) |
-| year             | Calendar year                                             | \-          | `YYYY` (e.g., `2024`)                   |
-| month            | Calendar month                                            | \-          | `MM` (e.g., `03`)                       |
-| day              | Calendar day                                              | \-          | `DD` (e.g., `05`)                       |
-| time             | Time in hours/minutes                                     | \-          | `HHmm` (e.g., `0530`)                   |
+| timestamp        | Valid time of the data entry                              | \-          | String `YYYYMMDD-hhmm` (e.g., `20240305-1530`) |
+| year             | Calendar year                                             | \-          | String `YYYY` (e.g., `2024`)            |
+| month            | Calendar month                                            | \-          | String `MM` (e.g., `03`)                |
+| day              | Calendar day                                              | \-          | String `DD` (e.g., `05`)                |
+| time             | Time in hours/minutes                                     | \-          | String `HHmm` (e.g., `0530`)            |
 | unixTime         | Seconds since **January 1, 1970** (Unix epoch)            | s           | Integer (e.g., `1709637000`)            |
 | latitude         | Geographic latitude                                       | °           | Decimal (e.g., `35.6789`)               |
 | longitude        | Geographic longitude (negative for W)                     | °           | Decimal (e.g., `-97.1234`)              |
 | radar            | 4-letter radar station identifier (ICAO)                  | \-          | String (e.g., `KTLX`)                   |
 | rangeKm          | Distance to the nearest (dual-pol) radar                  | km          | Float (e.g., `34.5`)                    |
-| beginTimestamp   | Report start time                                         | \-          | `YYYYMMDD-hhmm` (e.g., `20240305-1530`) |
-| beginYear        | Report start year                                         | \-          | `YYYY` (e.g., `2024`)                   |
-| beginMonth       | Report start month                                        | \-          | MM (e.g., `03`)                         |
-| beginDay         | Report start day                                          | \-          | DD (e.g., `05`)                         |
-| beginTime        | Report start time in                                      | \-          | HHmm (e.g., `0530`)                     |
+| beginTimestamp   | Report start time                                         | \-          | String `YYYYMMDD-hhmm` (e.g., `20240305-1530`) |
+| beginYear        | Report start year                                         | \-          | String `YYYY` (e.g., `2024`)            |
+| beginMonth       | Report start month                                        | \-          | String `MM` (e.g., `03`)                |
+| beginDay         | Report start day                                          | \-          | String `DD` (e.g., `05`)                |
+| beginTime        | Report start time in                                      | \-          | String`HHmm` (e.g., `0530`)             |
 | beginUnix        | Report start time in seconds since January 1, 1970 (Unix epoch) | s           | Integer (e.g., `1709637000`)      |
-| beginLongitude   | Report start geographic latitude                          | °           | Decimal (e.g., `35.6789`)               |
-| beginLatitude    | Report start geographic longitude (negative for W)        | °           | Decimal (e.g., `-97.1234`)              |
-| endTimestamp     | Report end time                                           | \-          | YYYYMMDD-hhmm (e.g., `20240305-1530`)   |
-| endYear          | Report end year                                           | \-          | YYYY (e.g., `2024`)                     |
-| endMonth         | Report end month                                          | \-          | MM (e.g., `03`)                         |
-| endDay           | Report end day                                            | \-          | DD (e.g., `05`)                         |
-| endTime          | Report end time in                                        | \-          | HHmm (e.g., `0530`)                     |
+| beginLongitude   | Report start geographic latitude                          | °           | Float (e.g., `35.6789`)                 |
+| beginLatitude    | Report start geographic longitude (negative for W)        | °           | Float (e.g., `-97.1234`)                |
+| endTimestamp     | Report end time                                           | \-          | String `YYYYMMDD-hhmm` (e.g., `20240305-1530`)   |
+| endYear          | Report end year                                           | \-          | String `YYYY` (e.g., `2024`)                     |
+| endMonth         | Report end month                                          | \-          | String `MM` (e.g., `03`)                         |
+| endDay           | Report end day                                            | \-          | String `DD` (e.g., `05`)                         |
+| endTime          | Report end time in                                        | \-          | String `HHmm` (e.g., `0530`)                     |
 | endUnix          | Report end time in seconds since January 1, 1970 (Unix epoch) | s           | Integer (e.g., `1709637000`)        |
 | endLongitude     | Report end geographic latitude                            | °           | Decimal (e.g., `35.6789`)               |
 | endLatitude      | Report end geographic longitude (negative for W)          | °           | Decimal (e.g., `-97.1234`)              |
@@ -38,40 +38,48 @@
 | severeType       | `Wind`, `Hail`, `Tornado`, or `-99900`. `-99900` is used for sub-severe (<50 kts or 1 in) reports. | \-          | String |
 | magnitude        | EF-rating for tornadoes, hail size in inches, or wind speed in knots   | EF/F/in/kts | String/float/integer      |
 | magnitudeType    | For wind magnitudes. EG = Wind Estimated Gust; ES = Estimated Sustained Wind; MS = Measured Sustained Wind;<br>MG = Measured Wind Gust. | \-            | String             |
-| type                              |                                                           |             |                                |
-| tornadoLength                     | From Storm Data: Length of the tornado or tornado segment while on the ground.  | mi          | Float    |
-| tornadoWidth                      | From Storm Data: Width of the tornado or tornado segment while on the ground.   | yd          | Integer  |
-| injuriesDirect                    |                                                           |             |                                |
-| injuriesIndirect                  |                                                           |             |                                |
-| deathsDirect                      |                                                           |             |                                |
-| deathsIndirect                    |                                                           |             |                                |
-| damageProperty                    |                                                           |             |                                |
-| damageCrops                       |                                                           |             |                                |
-| source                            |                                                           |             |                                |
-| overview                          |                                                           |             |                                |
-| details                           |                                                           |             |                                |
-| stormEventsEpisodeID              |                                                           |             |                                |
-| stormEventsReportID               |                                                           |             |                                |
-| oneTorID                          |                                                           |             |                                |
-| multiSegment                      |                                                           |             |                                |
-| previousSegment                   |                                                           |             |                                |
-| totalDurationMin                  |                                                           |             |                                |
-| maxMagnitudeAcrossSeg             |                                                           |             |                                |
-| totalTornadoLength                |                                                           |             |                                |
-| maxTornadoWidth                   |                                                           |             |                                |
-| totalInjuriesDirect               |                                                           |             |                                |
-| totalInjuriesIndirect             |                                                           |             |                                |
-| totalDeathsDirect                 |                                                           |             |                                |
-| totalDeathsIndirect               |                                                           |             |                                |
-| totalDamageProperty               |                                                           |             |                                |
-| totalDamageCrops                  |                                                           |             |                                |
-| preTornadoTracked                 |                                                           |             |                                |
-| stormID                           |                                                           |             |                                |
-| stormType                         |                                                           |             |                                |
-| county                            |                                                           |             |                                |
-| state                             |                                                           |             |                                |
-| CWA                               |                                                           |             |                                |
-| NWSRegion                         |                                                           |             |                                |
+| type                              | `Non-Severe`, `Severe Non-Tornadic`, `Significant Severe Non-Tornadic`, `Waterspout`, `Landspout`, `Tornado`, `Significant Tornado` | \-          | String |
+| tornadoLength    | From Storm Data: Length of the tornado or tornado segment while on the ground.  | mi          | Float    |
+| tornadoWidth     | From Storm Data: Width of the tornado or tornado segment while on the ground.   | yd          | Integer  |
+| injuriesDirect   | From Storm Data: The number of injuries directly caused by the weather event.   | people      | Integer  |
+| injuriesIndirect | From Storm Data: The number of injuries indirectly caused by the weather event. | people      | Integer  |
+| deathsDirect     | From Storm Data: The number of deaths directly caused by the weather event.     | people      | Integer  |
+| deathsIndirect   | From Storm Data: The number of deaths indirectly caused by the weather event.   | people      | Integer  |
+| damageProperty   | From Storm Data: The estimated amount of damage to property incurred by the weather event. | $           | Integer |
+| damageCrops      | From Storm Data: The estimated amount of damage to crops incurred by the weather event.    | $           | Integer |
+| source           | From Storm Data: The source reporting the weather event (can be any entry; isn’t restricted in what’s allowed). |             | String (e.g., : `Public`, `Law Enforcement`, `Trained Spotter`, `CoCoRaHS` |
+| overview                          | From Storm Data: The episode narrative depicting the general nature and overall activity of the episode. The
+National Weather Service creates the narrative. | \-          | String |
+| details                           | From Storm Data: The event narrative provides descriptive details of the individual event. The National Weather
+Service creates the narrative. | \-          | String |
+| stormEventsEpisodeID              | From Storm Data: ID assigned by NWS to denote the storm episode; Episodes may contain multiple Events.
+The occurrence of storms and other significant weather phenomena having sufficient intensity
+to cause loss of life, injuries, significant property damage, and/or disruption to commerce. | \-          | Integer |
+| stormEventsReportID               | From Storm Data: ID assigned by NWS for each individual storm event contained within a storm episode; links
+the record with the same event in the storm_event_details, storm_event_locations and
+storm_event_fatalities tables (Primary database key field). | \-          | Integer |
+| oneTorID                          | Common ID for all segments of a tornado. Same as the first segment's stormEventsReportID. Code finds start and end points within one minute and 1 km of one another. | \-          | Integer |
+| multiSegment                      | Binary flag for whether a tornado has more than one segment.   | \-          | Boolean/Integer (`1` or `0`) |
+| previousSegment                   | The stormEventsReportID of the previous segment in a tornado.  | \-          | Integer                      |
+| totalDurationMin                  | Duration for the full tornado track.                           | min         | Integer                      |
+| maxMagnitudeAcrossSeg             | Maximum EF rating for the full tornado track.                  | EF          | Integer                      |
+| totalTornadoLength                | Sum of the tornado lengths for the full tornado track.         | mi          | Float                        |
+| maxTornadoWidth                   | Max of the tornado widths for the full tornado track.          | yd          | Integer                      |
+| totalInjuriesDirect               | Sum of the direct injuries lengths for the full tornado track. | people      | Integer                      |
+| totalInjuriesIndirect             | Sum of the indirect injuries for the full tornado track.       | people      | Integer                      |
+| totalDeathsDirect                 | Sum of the direct deaths for the full tornado track.           | people      | Integer                      |
+| totalDeathsIndirect               | Sum of the indirect deaths for the full tornado track.         | people      | Integer                      |
+| totalDamageProperty               | Sum of the property damage for the full tornado track.         | $           | Integer                      |
+| totalDamageCrops                  | Sum of the crop damage for the full tornado track.             | $           | Integer                      |
+| preTornadoTracked                 | Binary flag for whether a tornado was tracked in the pre-tornadic period.   | \-          | Boolean/Integer (`1` or `0`) |
+| stormID                           | ID for tornadic storms.                                        | \-          | String `YYYYMM-[first tornado ID]` |
+| stormType                         | Manually labled storm mode. Discrete storms could be either supercells or ordinary storms. | \-             | String `Supercell`, `Linear`, `Ordinary`, `TC`, `Discrete` |
+| county                            | From Storm Data: County/Parish, Zone or Marine Name assigned to the county FIPS number or NWS Forecast
+Zone.  | \-          | String |
+| state                             | From Storm Data: The state name where the event occurred.      | \-          | String                       |
+| CWA                               | From Storm Data: The National Weather Service Forecast Office’s area of responsibility (County Warning Area)
+in which the event occurred. |             |                                |
+| NWSRegion                         |                                                           | \-          | String (`CR`, `ER`, `SR`, or ``) |
 | QCd                               |                                                           |             |                                |
 | corrected                         |                                                           |             |                                |
 | QCnotes                           |                                                           |             |                                |
