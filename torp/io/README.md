@@ -48,16 +48,10 @@
 | damageProperty   | From Storm Data: The estimated amount of damage to property incurred by the weather event. | $           | Integer |
 | damageCrops      | From Storm Data: The estimated amount of damage to crops incurred by the weather event.    | $           | Integer |
 | source           | From Storm Data: The source reporting the weather event (can be any entry; isn’t restricted in what’s allowed). |             | String (e.g., : `Public`, `Law Enforcement`, `Trained Spotter`, `CoCoRaHS` |
-| overview                          | From Storm Data: The episode narrative depicting the general nature and overall activity of the episode. The
-National Weather Service creates the narrative. | \-          | String |
-| details                           | From Storm Data: The event narrative provides descriptive details of the individual event. The National Weather
-Service creates the narrative. | \-          | String |
-| stormEventsEpisodeID              | From Storm Data: ID assigned by NWS to denote the storm episode; Episodes may contain multiple Events.
-The occurrence of storms and other significant weather phenomena having sufficient intensity
-to cause loss of life, injuries, significant property damage, and/or disruption to commerce. | \-          | Integer |
-| stormEventsReportID               | From Storm Data: ID assigned by NWS for each individual storm event contained within a storm episode; links
-the record with the same event in the storm_event_details, storm_event_locations and
-storm_event_fatalities tables (Primary database key field). | \-          | Integer |
+| overview                          | From Storm Data: The episode narrative depicting the general nature and overall activity of the episode. The National Weather Service creates the narrative. | \-          | String |
+| details                           | From Storm Data: The event narrative provides descriptive details of the individual event. The National Weather Service creates the narrative. | \-          | String |
+| stormEventsEpisodeID              | From Storm Data: ID assigned by NWS to denote the storm episode; Episodes may contain multiple Events. The occurrence of storms and other significant weather phenomena having sufficient intensity to cause loss of life, injuries, significant property damage, and/or disruption to commerce. | \-          | Integer |
+| stormEventsReportID               | From Storm Data: ID assigned by NWS for each individual storm event contained within a storm episode. | \-          | Integer |
 | oneTorID                          | Common ID for all segments of a tornado. Same as the first segment's stormEventsReportID. Code finds start and end points within one minute and 1 km of one another. | \-          | Integer |
 | multiSegment                      | Binary flag for whether a tornado has more than one segment.   | \-          | Boolean/Integer (`1` or `0`) |
 | previousSegment                   | The stormEventsReportID of the previous segment in a tornado.  | \-          | Integer                      |
@@ -74,11 +68,9 @@ storm_event_fatalities tables (Primary database key field). | \-          | Inte
 | preTornadoTracked                 | Binary flag for whether a tornado was tracked in the pre-tornadic period.   | \-          | Boolean/Integer (`1` or `0`) |
 | stormID                           | ID for tornadic storms.                                        | \-          | String `YYYYMM-[first tornado ID]` |
 | stormType                         | Manually labled storm mode. Discrete storms could be either supercells or ordinary storms. | \-             | String `Supercell`, `Linear`, `Ordinary`, `TC`, `Discrete` |
-| county                            | From Storm Data: County/Parish, Zone or Marine Name assigned to the county FIPS number or NWS Forecast
-Zone.  | \-          | String |
+| county                            | From Storm Data: County/Parish, Zone or Marine Name assigned to the county FIPS number or NWS Forecast Zone.  | \-          | String |
 | state                             | From Storm Data: The state name where the event occurred.      | \-          | String                       |
-| CWA                               | From Storm Data: The National Weather Service Forecast Office’s area of responsibility (County Warning Area)
-in which the event occurred. |             |                                |
+| CWA                               | From Storm Data: The National Weather Service Forecast Office’s area of responsibility (County Warning Area) in which the event occurred. |             |                                |
 | NWSRegion                         |                                                           | \-          | String (`CR`, `ER`, `SR`, or ``) |
 | QCd                               |                                                           |             |                                |
 | corrected                         |                                                           |             |                                |
